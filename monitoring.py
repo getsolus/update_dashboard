@@ -78,9 +78,11 @@ def get_metadata(workdir: pathlib.Path, package_name: str) -> dict:
                                     contact_method['children'][0]['children'][0]['content']
                                     for contact_method
                                     in maintainer['children'][1]['children']
-                                ]
+                                ] if len(maintainer['children']) > 1 else [],
                             }
                         )
+    else:
+        maintainers = []
     with(open(monitoring_file, "r")) as monitoring_file:
         monitoring = yaml.safe_load(monitoring_file)
         release_id = monitoring["releases"]["id"]
