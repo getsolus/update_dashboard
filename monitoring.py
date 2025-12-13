@@ -37,11 +37,20 @@ def get_outdated(workdir: pathlib.Path):
     return outdated
 
 
-def resolve_package_dir(package_name: str) -> pathlib.Path:
+def _resolve_package_dir(package_name: str) -> pathlib.Path:
+    package_name = package_name.replace("+", "x")
     if package_name.startswith('py'):
-        output = pathlib.Path(f'packages/{package_name[0]}{package_name[1]}/{package_name}')
+        output = pathlib.Path(f'packages/{package_name[0].lower()}{package_name[1].lower()}/{package_name}')
+    elif package_name == 'CGAL':
+        output = pathlib.Path('packages/c/cgal')
+    elif package_name == 'SFML':
+        output = pathlib.Path('packages/s/sfml')
+    elif package_name == 'VisualBoyAdvance-M':
+        output = pathlib.Path('packages/v/visualboyadvance-m')
+    elif package_name == 'perl-docbook':
+        output = pathlib.Path('packages/p/perl-docmake')
     else:
-        output = pathlib.Path(f'packages/{package_name[0]}/{package_name}')
+        output = pathlib.Path(f'packages/{package_name[0].lower()}/{package_name}')
     return output
 
 
