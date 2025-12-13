@@ -31,3 +31,11 @@ def get_outdated(workdir: pathlib.Path):
         and not line.startswith(b"Package  ")
     ]
     return outdated
+
+
+def resolve_package_dir(package_name: str) -> pathlib.Path:
+    if package_name.startswith('py'):
+        output = pathlib.Path(f'packages/{package_name[0]}{package_name[1]}/{package_name}')
+    else:
+        output = pathlib.Path(f'packages/{package_name[0]}/{package_name}')
+    return output
