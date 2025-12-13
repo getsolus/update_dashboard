@@ -55,7 +55,7 @@ def _resolve_package_dir(package_name: str) -> pathlib.Path:
 
 
 def get_metadata(workdir: pathlib.Path, package_name: str) -> dict:
-    pkg_dir = workdir / resolve_package_dir(package_name)
+    pkg_dir = workdir / _resolve_package_dir(package_name)
     if not pkg_dir.exists():
         raise RuntimeError(f"Package {package_name}'s directory does not exist in the specified working directory.")
     package_file = workdir / pkg_dir / "package.yml"
