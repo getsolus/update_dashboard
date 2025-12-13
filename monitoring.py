@@ -24,9 +24,9 @@ def get_outdated(workdir: pathlib.Path):
     outdated_lines = outdated_text.splitlines()
     outdated = [
         {
-            "name": line.split()[0],
-            "current_version": line.split()[1],
-            "new_version": line.split()[2],
+            "name": line.split()[0].decode("utf-8"),
+            "current_version": line.split()[1].decode("utf-8"),
+            "new_version": line.split()[2].decode("utf-8"),
         }
         for line in outdated_lines
         if len(line.split()) == 3
