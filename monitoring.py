@@ -68,7 +68,7 @@ def get_metadata(workdir: pathlib.Path, package_name: str) -> dict:
         package = yaml.safe_load(package_file)
         homepage = package["homepage"]
     if maintainers_file.exists():
-        with(open(maintainers_file, "r")) as maintainers_file:
+        with open(maintainers_file, "r") as maintainers_file:
             maintainers_ast = json.loads(AstRenderer().render(Document(maintainers_file)))
             maintainers = []
             for child in maintainers_ast['children']:
@@ -86,7 +86,7 @@ def get_metadata(workdir: pathlib.Path, package_name: str) -> dict:
                         )
     else:
         maintainers = []
-    with(open(monitoring_file, "r")) as monitoring_file:
+    with open(monitoring_file, "r") as monitoring_file:
         monitoring = yaml.safe_load(monitoring_file)
         release_id = monitoring["releases"]["id"]
         monitoring_url = f"https://release-monitoring.org/api/v2/versions/?project_id={release_id}"
