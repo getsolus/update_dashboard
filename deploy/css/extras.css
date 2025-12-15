@@ -1,0 +1,28 @@
+table {
+    margin-inline: auto;
+    display: table;
+}
+
+table th,
+table td {
+    border: 1px solid var(--plain-graphical-fg);
+    padding-inline: .5rem;
+}
+
+main {
+    max-width: fit-content;
+}
+
+header .title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+th[data-sorted-direction="ascending"] button svg {
+    rotate: 180deg;
+}
+
+th[data-sorted-direction="descending"] button svg {
+    rotate: 0deg;
+}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <main>
+        <p>{{ num_outdated }} packages have available updates:</p>
+{#        <action-table>#}
+{#        <action-table-filter-menu name="Maintainers"></action-table-filter-menu>#}
+{#        <input id="action-table-search" type="search" name="action-table" />#}
+        <table data-sortable="">
+            <thead>
+                <th>Package Name<button>Sort{% lucide 'arrow-down' %}</button></th>
+                <th>Homepage</th>
+                <th>Monitoring Link</th>
+                <th>Current Version<button>Sort{% lucide 'arrow-down' %}</button></th>
+                <th>New Version<button>Sort{% lucide 'arrow-down' %}</button></th>
+                <th>Maintainers<button>Sort{% lucide 'arrow-down' %}</button></th>
+            </thead>
+            <tbody>
+                {% for package in outdated_packages %}
+                    <tr>
+                        <td>{{ package['package_name'] }}</td>
+                        <td><a href="{{ package['homepage'] }}">Homepage</a></td>
+                        <td><a href="{{ package['monitoring_link'] }}">Monitoring</a></td>
+                        <td>{{ package['current_version'] }}</td>
+                        <td>{{ package['new_version'] }}</td>
+                        <td>
+                            <ul>
+                                {% for maintainer in package['maintainers'] %}
+                                    <li>{{ maintainer['name'] }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{#        </action-table>#}
+    </main>
+{% endblock %}

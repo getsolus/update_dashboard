@@ -3,3 +3,4 @@ typer~=0.20
 rich~=14.2.0
 PyYAML~=6.0.3
 mistletoe~=1.5.1
+jinja2-lucide
