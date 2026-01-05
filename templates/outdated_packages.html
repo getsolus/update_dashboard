@@ -2,6 +2,24 @@
 
 {% block body %}
     <main>
+            <div class="info-panel">
+            <span>
+                <input
+                        placeholder="Search"
+                        _="
+                            on keyup
+                             if the event's key is 'Escape'
+                               set my value to ''
+                               show <tr/>
+                               trigger keyup
+                             else
+                              if my value.length > 0
+                               then show <tr/> in #searchable when its textContent.toLowerCase() contains my value.toLowerCase()
+                              else
+                               show <tr/>"
+                >
+            </span>
+        </div>
         <div class="info-panel">
             <span>{{ num_outdated }} packages have available updates:</span>
             <span>Last updated {{ current_date }}</span>
@@ -15,7 +33,7 @@
                 <th>New Version<button class="sort-button">Sort{% lucide 'arrow-down', width=14, height=14 %}</button></th>
                 <th>Maintainers<button class="sort-button">Sort{% lucide 'arrow-down', width=14, height=14 %}</button></th>
             </thead>
-            <tbody>
+            <tbody id="searchable">
                 {% for package in outdated_packages %}
                     <tr>
                         <td>{{ package['package_name'] }}</td>
