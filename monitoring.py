@@ -9,22 +9,22 @@ import json
 
 
 def get_outdated(workdir: pathlib.Path):
-    # try:
-    #     outdated_text = subprocess.check_output(
-    #         [
-    #             "ent",
-    #             "check",
-    #             "updates",
-    #         ],
-    #         cwd=workdir,
-    #     )
-    # except subprocess.CalledProcessError:
-    #     raise RuntimeError("Failed to run ent. Is it installed?")
-    with open('ent_output', 'r') as f:
-        outdated_lines = f.readlines()
-    outdated_lines = [line.encode('utf-8') for line in outdated_lines]
+    try:
+        outdated_text = subprocess.check_output(
+            [
+                "ent",
+                "check",
+                "updates",
+            ],
+            cwd=workdir,
+        )
+    except subprocess.CalledProcessError:
+        raise RuntimeError("Failed to run ent. Is it installed?")
+    # with open('ent_output', 'r') as f:
+    #     outdated_lines = f.readlines()
+    # outdated_lines = [line.encode('utf-8') for line in outdated_lines]
 
-    # outdated_lines = outdated_text.splitlines()
+    outdated_lines = outdated_text.splitlines()
     outdated = [
         {
             "name": line.split()[0].decode("utf-8"),
