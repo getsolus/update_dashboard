@@ -2,18 +2,21 @@
 
 {% block body %}
     <main>
-        <p>{{ num_outdated }} packages have available updates:</p>
+        <div class="info-panel">
+            <span>{{ num_outdated }} packages have available updates:</span>
+            <span>Last updated {{ current_date }}</span>
+        </div>
 {#        <action-table>#}
 {#        <action-table-filter-menu name="Maintainers"></action-table-filter-menu>#}
 {#        <input id="action-table-search" type="search" name="action-table" />#}
         <table data-sortable="">
             <thead>
-                <th>Package Name<button>Sort{% lucide 'arrow-down' %}</button></th>
+                <th>Package Name<button class="sort-button">Sort{% lucide 'arrow-down' %}</button></th>
                 <th>Homepage</th>
-                <th>Monitoring Link</th>
-                <th>Current Version<button>Sort{% lucide 'arrow-down' %}</button></th>
-                <th>New Version<button>Sort{% lucide 'arrow-down' %}</button></th>
-                <th>Maintainers<button>Sort{% lucide 'arrow-down' %}</button></th>
+                <th>Monitoring</th>
+                <th>Current Version<button class="sort-button">Sort{% lucide 'arrow-down' %}</button></th>
+                <th>New Version<button class="sort-button">Sort{% lucide 'arrow-down' %}</button></th>
+                <th>Maintainers<button class="sort-button">Sort{% lucide 'arrow-down' %}</button></th>
             </thead>
             <tbody>
                 {% for package in outdated_packages %}

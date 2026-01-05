@@ -1,12 +1,28 @@
+* {
+    --rhythm: 0.75rem;
+}
+
 table {
     margin-inline: auto;
     display: table;
+    margin-bottom: 4rem;
 }
 
 table th,
 table td {
     border: 1px solid var(--plain-graphical-fg);
-    padding-inline: .5rem;
+    padding-inline: var(--rhythm);
+    padding-block: .5rem;
+}
+
+table tr:nth-child(even) {
+    background-color: var(--plain-bg);
+}
+
+.sort-button:not(#specificity-hack) {
+    float: right;
+    margin-left: var(--rhythm);
+    margin-right: 0;
 }
 
 main {
@@ -25,4 +41,18 @@ th[data-sorted-direction="ascending"] button svg {
 
 th[data-sorted-direction="descending"] button svg {
     rotate: 0deg;
+}
+
+th:not([data-sorted="true"]) button svg {
+    opacity: 0;
+}
+
+.info-panel {
+    display: flex;
+    margin-bottom: var(--rhythm);
+}
+
+.info-panel span:last-child {
+    margin-left: auto;
+    margin-right: 0;
 }

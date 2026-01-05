@@ -5,6 +5,7 @@ import typer
 from rich import print
 from jinja2 import Environment, PackageLoader
 from jinja2_lucide import LucideExtension
+from datetime import datetime
 
 app = typer.Typer()
 
@@ -25,7 +26,14 @@ def render_outdated(packages_dir: pathlib.Path, output_filename: pathlib.Path = 
     ]
     template = env.get_template('outdated_packages.html')
     with output_filename.open('w') as output_file:
-        output_file.write(template.render(outdated_packages=outdated_packages, page_title='Outdated packages', num_outdated=len(outdated_packages)))
+        output_file.write(
+            template.render(
+                outdated_packages=outdated_packages,
+                page_title='Outdated packages',
+                num_outdated=len(outdated_packages),
+                current_date=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            )
+        )
     # print(template.render(outdated_packages=outdated_packages))
 
 if __name__ == '__main__':
