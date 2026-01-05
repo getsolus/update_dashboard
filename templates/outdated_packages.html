@@ -6,9 +6,6 @@
             <span>{{ num_outdated }} packages have available updates:</span>
             <span>Last updated {{ current_date }}</span>
         </div>
-{#        <action-table>#}
-{#        <action-table-filter-menu name="Maintainers"></action-table-filter-menu>#}
-{#        <input id="action-table-search" type="search" name="action-table" />#}
         <table data-sortable="">
             <thead>
                 <th>Package Name<button class="sort-button">Sort{% lucide 'arrow-down' %}</button></th>
@@ -37,6 +34,5 @@
                 {% endfor %}
             </tbody>
         </table>
-{#        </action-table>#}
     </main>
 {% endblock %}
