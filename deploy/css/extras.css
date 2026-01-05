@@ -35,6 +35,11 @@ header .title {
     font-size: 1.6rem;
 }
 
+th button:not(#specificity-hack) {
+    padding-inline: 0.5rem;
+    padding-block: 0.25rem;
+}
+
 th[data-sorted-direction="ascending"] button svg {
     rotate: 180deg;
 }
@@ -45,6 +50,7 @@ th[data-sorted-direction="descending"] button svg {
 
 th:not([data-sorted="true"]) button svg {
     opacity: 0;
+    display: none;
 }
 
 .info-panel {

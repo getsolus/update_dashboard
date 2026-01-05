@@ -8,12 +8,12 @@
         </div>
         <table data-sortable="">
             <thead>
-                <th>Package Name<button class="sort-button">Sort{% lucide 'arrow-down' %}</button></th>
+                <th>Package Name<button class="sort-button">Sort{% lucide 'arrow-down', width=14, height=14 %}</button></th>
                 <th>Homepage</th>
                 <th>Monitoring</th>
-                <th>Current Version<button class="sort-button">Sort{% lucide 'arrow-down' %}</button></th>
-                <th>New Version<button class="sort-button">Sort{% lucide 'arrow-down' %}</button></th>
-                <th>Maintainers<button class="sort-button">Sort{% lucide 'arrow-down' %}</button></th>
+                <th>Current Version<button class="sort-button">Sort{% lucide 'arrow-down', width=14, height=14 %}</button></th>
+                <th>New Version<button class="sort-button">Sort{% lucide 'arrow-down', width=14, height=14 %}</button></th>
+                <th>Maintainers<button class="sort-button">Sort{% lucide 'arrow-down', width=14, height=14 %}</button></th>
             </thead>
             <tbody>
                 {% for package in outdated_packages %}
