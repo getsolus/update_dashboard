@@ -1,0 +1,16 @@
+version: 3
+
+tasks:
+  generate:
+    cmds:
+      - git --git-dir=/home/sheepman/packages/.git pull
+      - python main.py /home/sheepman/packages
+
+  deploy:
+    cmds:
+      - rsync -avz deploy/* sheepman@packages.getsol.us:/srv/shared/sheepman/update-dashboard
+
+  default:
+    cmds:
+      - task: generate
+      - task: deploy
