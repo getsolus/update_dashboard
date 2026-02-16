@@ -3,7 +3,7 @@ version: 3
 tasks:
   generate:
     cmds:
-      - git --git-dir=/home/sheepman/packages/.git pull
+      - git -C /home/sheepman/packages pull
       - python main.py /home/sheepman/packages
 
   deploy:
