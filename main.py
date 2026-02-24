@@ -4,7 +4,7 @@ from rich.progress import track
 import typer
 from rich import print
 from jinja2 import Environment, PackageLoader
-from jinja2_lucide import LucideExtension
+from lucide.jinja import lucide
 from datetime import datetime
 
 app = typer.Typer()
@@ -12,7 +12,12 @@ app = typer.Typer()
 env = Environment(
     loader=PackageLoader('main', 'templates'),
     autoescape=True,
-    extensions=[LucideExtension],
+)
+
+env.globals.update(
+    {
+        "lucide": lucide,
+    }
 )
 
 @app.command()
