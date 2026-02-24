@@ -7,8 +7,7 @@ tasks:
       - python main.py /home/sheepman/packages
 
   deploy:
-    cmds:
-      - rsync -avz deploy/* sheepman@packages.getsol.us:/srv/packaging-dashboard
+      - rsync -avz deploy/* /srv/packaging-dashboard
 
   default:
     cmds:
