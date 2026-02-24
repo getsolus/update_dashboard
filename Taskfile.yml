@@ -8,7 +8,7 @@ tasks:
 
   deploy:
     cmds:
-      - rsync -avz deploy/* sheepman@packages.getsol.us:/srv/shared/sheepman/update-dashboard
+      - rsync -avz deploy/* sheepman@packages.getsol.us:/srv/packaging-dashboard
 
   default:
     cmds:
