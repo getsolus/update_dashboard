@@ -41,7 +41,8 @@ def get_outdated(workdir: pathlib.Path):
 
 
 def _resolve_package_dir(package_name: str) -> pathlib.Path:
-    package_name = package_name.replace("+", "x")
+    if package_name not in ['libsigc++']:
+        package_name = package_name.replace("+", "x")
     if package_name.startswith('py'):
         output = pathlib.Path(f'packages/{package_name[0].lower()}{package_name[1].lower()}/{package_name}')
     elif package_name == 'CGAL':
