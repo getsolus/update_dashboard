@@ -41,7 +41,8 @@ def get_outdated(workdir: pathlib.Path):
 
 
 def _resolve_package_dir(package_name: str) -> pathlib.Path:
-    package_name = package_name.replace("+", "x")
+    if package_name not in ['libsigc++']:
+        package_name = package_name.replace("+", "x")
     if package_name.startswith('py'):
         output = pathlib.Path(f'packages/{package_name[0].lower()}{package_name[1].lower()}/{package_name}')
     elif package_name == 'CGAL':
@@ -50,8 +51,6 @@ def _resolve_package_dir(package_name: str) -> pathlib.Path:
         output = pathlib.Path('packages/s/sfml')
     elif package_name == 'VisualBoyAdvance-M':
         output = pathlib.Path('packages/v/visualboyadvance-m')
-    elif package_name == 'perl-docbook':
-        output = pathlib.Path('packages/p/perl-docmake')
     elif package_name == 'ETL':
         output = pathlib.Path('packages/e/etl')
     elif package_name == 'libxmlxx':
