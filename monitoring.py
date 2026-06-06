@@ -54,6 +54,8 @@ def _resolve_package_dir(package_name: str) -> pathlib.Path:
         output = pathlib.Path('packages/p/perl-docmake')
     elif package_name == 'ETL':
         output = pathlib.Path('packages/e/etl')
+    elif package_name == 'libxmlxx':
+        output = pathlib.Path('packages/l/libxml++')
     else:
         output = pathlib.Path(f'packages/{package_name[0].lower()}/{package_name}')
     return output
